@@ -1,0 +1,31 @@
+Final DNS Issue Resolution Report
+
+Date: 22/08/2024
+Time: 11:35 AM
+
+Analysis and Resolution Summary:
+
+Issue:
+The DNS server at 203.0.113.2 was returning ICMP "port unreachable" errors in response to DNS queries from the IP address 192.51.100.15. This indicated that the DNS service on the server was either down or blocked.
+
+Actions Taken:
+
+1. Checked DNS Service Status:
+  - The DNS service (BIND) on the server 203.0.113.2 was found to be down due to a misconfiguration in the named.conf file.
+  - The configuration was corrected by ensuring all zones and directives were properly defined.
+  - The DNS service was successfully restarted using the command:
+    -sudo systemctl restart named
+
+2. Verified and Updated Firewall Configuration:
+   - It was identified that the firewall on the server was blocking DNS traffic on port 53.
+   - Firewall rules were updated to allow both UDP and TCP traffic on port 53 using the following commands:
+     - sudo iptables -A INPUT -p udp --dport 53 -j ACCEPT
+     - sudo iptables -A INPUT -p tcp --dport 53 -j ACCEPT
+
+3. ested DNS Resolution:
+   - A DNS lookup test was performed from the source IP 192.51.100.15 using the dig command:
+     - dig @203.0.113.2 yummyrecipesforme.com
+   - The DNS server 203.0.113.2 successfully responded to the query, confirming that the DNS resolution was functioning correctly.
+
+4. Conclusion:
+The DNS issue was resolved by fixing the misconfiguration in the named.conf file and updating the firewall rules to allow DNS traffic on port 53. After these corrections, the DNS server at 203.0.113.2 resumed normal operation, successfully handling DNS queries without any further issues.

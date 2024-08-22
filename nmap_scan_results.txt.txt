@@ -1,0 +1,21 @@
+IP Address: 192.168.1.10
+
+Open Ports:
+
+22/tcp - SSH
+80/tcp - HTTP
+443/tcp - HTTPS
+3306/tcp - MySQL Database
+Service Versions:
+
+SSH: OpenSSH 7.4 (protocol 2.0)
+HTTP: Apache 2.4.29
+HTTPS: Apache 2.4.29 with SSL/TLS support
+MySQL: MySQL 5.7.23
+OS Detection: Linux Kernel 4.15
+
+Additional Information:
+
+The HTTP service running on port 80 is configured with the default Apache page, indicating a potentially vulnerable web server.
+The SSH service might be vulnerable to brute-force attacks if weak credentials are used.
+The MySQL service is exposed to the network, which might pose a risk if not properly secured.

@@ -1,0 +1,68 @@
+
+Security Analysis Report
+Date: [23/08/2024]
+
+Conducted By: Ahmed Mashhour Mohamed
+
+1. Introduction
+This report provides an analysis of the network scan conducted on the target machine. The scan results, saved in the file nmap_scan_results.txt, have been reviewed to identify open ports, running services, and any potential security risks.
+
+
+2. Scan Summary
+The scan identified the following open ports and associated services:
+
+Port	Service	     Version	       Risk Level	           Notes
+22	SSH	  OpenSSH 7.6p1	         Medium	       Possible brute-force attack vector.
+80	HTTP	  Apache 2.4.29	          High	       Unpatched versions might have vulnerabilities.
+443	HTTPS	  Apache 2.4.29	          Low	       No immediate risk identified.
+3306	MySQL	  MySQL 5.7.30	          High	       Database could be exposed to SQL injection.
+5900	VNC	  VNC protocol 3.3	  High	       Possible unauthorized remote access.
+
+
+3. Detailed Analysis
+Port 22 (SSH)
+Service: SSH
+Version: OpenSSH 7.6p1
+Risk Level: Medium
+Analysis: SSH is used for secure remote access. However, if not configured properly, it could be susceptible to brute-force attacks. It's essential to enforce strong passwords and consider using key-based authentication.
+Recommendation: Ensure that the SSH service is up-to-date and configured with strong authentication mechanisms. Consider disabling root login over SSH.
+Port 80 (HTTP)
+
+Service: Apache HTTP Server
+Version: Apache 2.4.29
+Risk Level: High
+Analysis: The HTTP service is running on Apache 2.4.29. Unpatched versions of Apache can be vulnerable to various exploits. As this port is accessible over the internet, it poses a significant security risk if not adequately protected.
+Recommendation: Update Apache to the latest version and ensure all security patches are applied. Consider implementing a web application firewall (WAF) to protect against common web vulnerabilities.
+Port 443 (HTTPS)
+
+Service: Apache HTTPS Server
+Version: Apache 2.4.29
+Risk Level: Low
+Analysis: HTTPS provides encrypted communication over the internet. While no immediate risks are identified, it’s important to ensure that SSL/TLS configurations are up-to-date and free from vulnerabilities like Heartbleed.
+Recommendation: Regularly review SSL/TLS settings and update the cryptographic protocols to the latest standards. Consider implementing HTTP Strict Transport Security (HSTS).
+Port 3306 (MySQL)
+
+Service: MySQL Database
+Version: MySQL 5.7.30
+Risk Level: High
+Analysis: The MySQL database is accessible over the network, which increases the risk of SQL injection attacks if the database is not securely configured.
+Recommendation: Restrict access to the MySQL port by using firewall rules. Ensure that the database is properly configured with strong authentication and secure coding practices are followed in applications interacting with the database.
+Port 5900 (VNC)
+
+Service: VNC (Virtual Network Computing)
+Version: VNC protocol 3.3
+Risk Level: High
+Analysis: VNC is used for remote desktop access. Running an outdated VNC protocol can lead to unauthorized remote access, which poses a significant security risk.
+Recommendation: Update the VNC server to the latest version and enforce strong authentication. If VNC is not needed, consider disabling the service altogether.
+
+
+4. Conclusion
+The scan identified several open ports with associated services that could pose security risks if not properly managed. Immediate action should be taken to mitigate these risks, including updating software, applying security patches, and implementing strong authentication mechanisms.
+
+
+5. Next Steps
+Immediate: Apply the recommended security measures to address the identified risks.
+Ongoing: Regularly scan the network and monitor for any new vulnerabilities. Implement continuous security assessments as part of the overall security strategy.
+
+Report prepared by: Ahmed Mashhour Mohamed
+

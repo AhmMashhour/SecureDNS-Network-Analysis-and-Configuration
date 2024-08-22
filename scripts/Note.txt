@@ -1,0 +1,4 @@
+Make sure the scripts are executable:
+
+chmod +x scripts/capture_packets.sh
+chmod +x scripts/analyze_packets.sh

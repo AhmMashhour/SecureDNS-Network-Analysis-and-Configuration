@@ -1,0 +1,16 @@
+11:01 BM - 22/08/2024:
+- Investigated DNS logs where repeated DNS query attempts were observed from IP `192.51.100.15` to the DNS server at `203.0.113.2` for the domain `yummyrecipesforme.com`.
+- The DNS server `203.0.113.2` consistently returned ICMP "port unreachable" messages, indicating that the DNS service on port 53 was not accessible or responding on that server.
+
+Actions Taken:
+- Checked the status of the DNS server at `203.0.113.2` to determine if the DNS service was running and listening on port 53.
+- Attempted to resolve the domain `yummyrecipesforme.com` using an alternative DNS server from the source `192.51.100.15`.
+- Utilized network diagnostic tools (`ping`, `traceroute`, `nslookup`) to further analyze connectivity issues and DNS resolution failures.
+
+Results:
+- The DNS service at `203.0.113.2` was found to be down or misconfigured, causing the ICMP "port unreachable" responses.
+- Resolution of `yummyrecipesforme.com` was successful when using a different DNS server, confirming that the issue was isolated to the DNS server at `203.0.113.2`.
+- No other anomalies were found in the network path between the source and destination, indicating the issue was specific to the DNS server.
+
+Conclusion:
+- The DNS server at `203.0.113.2` requires further investigation or reconfiguration to restore normal DNS resolution services.

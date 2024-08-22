@@ -1,0 +1,10 @@
+# Network Configuration
+
+# IP Address Configuration
+IP_ADDRESS=192.168.1.10
+SUBNET_MASK=255.255.255.0
+GATEWAY=192.168.1.1
+
+# DNS Servers
+PRIMARY_DNS=8.8.8.8
+SECONDARY_DNS=8.8.4.4
