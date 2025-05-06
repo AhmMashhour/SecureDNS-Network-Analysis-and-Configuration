@@ -13,4 +13,4 @@ Results:
 - No other anomalies were found in the network path between the source and destination, indicating the issue was specific to the DNS server.
 
 Conclusion:
-- The DNS server at `203.0.113.2` requires further investigation or reconfiguration to restore normal DNS resolution services
+- The DNS server at `203.0.113.2` requires further investigation or reconfiguration to restore normal DNS resolution services.
